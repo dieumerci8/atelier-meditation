@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Atelier Méditation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand"><span>AM</span><div>Atelier<br><b>Méditation</b></div></div>
+      <nav>
+        <button class="active" data-view="today">Aujourd’hui</button>
+        <button data-view="library">Bibliothèque</button>
+        <button data-view="automation">Automatisation</button>
+        <button data-view="settings">Paramètres</button>
+      </nav>
+      <div class="aside-note"><b>Validation humaine</b><br>Aucun contenu n’est publié sans votre accord.</div>
+    </aside>
+
+    <main>
+      <header><div><p class="eyebrow">MINISTÈRE · LUBUMBASHI</p><h1 id="page-title">La méditation du jour</h1></div><div class="status"><i></i> Système prêt</div></header>
+
+      <section id="today" class="view active">
+        <div class="schedule">
+          <div><span>PROCHAINE PRÉPARATION</span><strong id="next-run">19:00</strong><small>Africa/Lubumbashi</small></div>
+          <button id="generate">Préparer maintenant <b>→</b></button>
+        </div>
+
+        <div class="grid">
+          <section class="card editor">
+            <div class="card-head"><div><span class="step">01</span><b>Source biblique</b></div><span class="pill">À vérifier</span></div>
+            <label>Passage</label><input id="reference" value="Psaume 46:2–4" placeholder="Ex. Jean 3:16">
+            <label>Texte vérifié / notes</label><textarea id="verse">Dieu est pour nous un refuge et un appui, un secours qui ne manque jamais dans la détresse.</textarea>
+            <div class="divider"></div>
+            <div class="card-head"><div><span class="step">02</span><b>Méditation</b></div><span id="draft-state" class="pill gold">Brouillon</span></div>
+            <label>Titre</label><input id="title" value="Un refuge qui ne manque jamais">
+            <label>Message</label><textarea id="message" class="large">Quand tout semble bouger autour de nous, Dieu demeure stable. Le psalmiste ne nie pas la détresse : il affirme qu’au milieu d’elle, un secours est déjà présent. Aujourd’hui, nous pouvons déposer nos inquiétudes devant Dieu et avancer avec confiance.</textarea>
+            <div class="two"><div><label>Plan</label><textarea id="outline">1. Reconnaître la tempête\n2. Chercher le refuge\n3. Choisir la confiance</textarea></div><div><label>Prière</label><textarea id="prayer">Seigneur, sois mon refuge aujourd’hui. Donne-moi la paix et la force d’avancer avec foi. Amen.</textarea></div></div>
+          </section>
+
+          <aside class="right">
+            <section class="card preview">
+              <div class="card-head"><b>Aperçu publication</b><span class="channel">f</span></div>
+              <div id="preview-text"></div>
+            </section>
+            <section class="card checklist">
+              <b>Contrôle avant validation</b>
+              <label><input type="checkbox" id="check-source"> Passage relu et vérifié</label>
+              <label><input type="checkbox" id="check-tone"> Ton fidèle à mon ministère</label>
+              <label><input type="checkbox" id="check-consent"> Destinataires WhatsApp consentants</label>
+              <button id="approve" disabled>Approuver le brouillon</button>
+              <button id="export" class="secondary">Exporter pour n8n</button>
+              <p id="feedback"></p>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="library" class="view"><div class="card"><h2>Bibliothèque</h2><p>Les brouillons enregistrés sur cet appareil apparaissent ici.</p><div id="saved-list"></div></div></section>
+      <section id="automation" class="view"><div class="card"><h2>Automatisation</h2><div class="automation-row"><div><b>Préparation du matin</b><small>Chaque jour · 07:00 · Africa/Lubumbashi</small></div><span>Active</span></div><div class="automation-row"><div><b>Préparation du soir</b><small>Chaque jour · 19:00 · Africa/Lubumbashi</small></div><span>Active</span></div><p class="muted">Le MVP prépare les données et exporte un fichier JSON importable dans votre scénario n8n. Les connexions Facebook et WhatsApp Business restent à configurer dans n8n.</p></div></section>
+      <section id="settings" class="view"><div class="card"><h2>Paramètres</h2><label>Nom du ministère</label><input id="ministry" value="Mon ministère"><label>Version biblique préférée</label><input value="Louis Segond 1910"><label>Canal cible</label><select><option>Facebook</option><option>WhatsApp Business</option><option>Préparation uniquement</option></select></div></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
